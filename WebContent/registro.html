@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="Equipo2" content="">
+    <title>SAGRA</title>
+    <!-- Bootstrap core CSS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+     <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+
+    <link href="css/registro.css" rel="stylesheet">
+    <script type="text/javascript" src="js/registro.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="index.html" id="home">SAGRA</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li id="btnLogin" >
+                        <a href="index.html" >Iniciar Sesión</a>
+                    </li>
+                    <li class="">
+                        <a href="registro.html">Registrarse</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="site-wrapper">
+
+
+      <div class="site-wrapper-inner" >
+
+        <div class="cover-container" id="divCentro">
+          <div class="btn-group btn-group-justified inner" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button id="boton_usuario" type="button" class="btn btn-info">Usuario</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button id="boton_agencia" type="button" class="btn btn-info">Agencia</button>
+            </div>
+           
+          </div>
+          
+
+          <div  class="inner cover" >
+
+              <!--Formulario Usuario --> 
+              <form  id="centro_registro" class="form-horizontal " role="form" action="Registro" method="post">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name = "nombre" class="form-control" id="nombre" placeholder="Ingresar nombre">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="apellido">Apellidos:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name = "apellidos" class="form-control" id="apellido" placeholder="Ingresar apellido">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="usuario">Nombre de Usuario:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name= "usuario" class="form-control" id="usuario" placeholder="Ingresar usuario">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">Email:</label>
+                  <div class="col-sm-10">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Ingresar email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Password:</label>
+                  <div class="col-sm-10"> 
+                    <input type="password" name="pass" class="form-control" id="pwd" placeholder="Ingrese una Contraseña">
+                  </div>
+                </div>
+                <div class="form-group"> 
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Registrarse</button>
+                  </div>
+                </div>
+              </form>
+
+
+              <!--Formulario Agencia --> 
+              <form  id="centro_registro2" class="form-horizontal " role="form" action="RegistroAgencia" method="post">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreEmpresa">Nombre de la Empresa:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="nombreEmp" class="form-control" id="nombreEmpresa" placeholder="Ingresa Nombre de la Empresa">
+                  </div>
+                </div>
+
+
+                 <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreUsuario">Nombre de Usuario:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="usuarioEmp" class="form-control" id="nUsuarioEmpresa" placeholder="Ingrese un Nombre de Usuario">
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">Email:</label>
+                  <div class="col-sm-10">
+                    <input type="email" name="email" class="form-control" id="emailEmpresa" placeholder="Ingrese Email">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="pwd">Password:</label>
+                  <div class="col-sm-10"> 
+                    <input type="password" name="pass" class="form-control" id="pwd" placeholder="Ingrese una Contraseña">
+                  </div>
+                </div>                
+                <div class="form-group"> 
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Registrarse</button>
+                  </div>
+                </div>
+              </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+   
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>IPN<br>ESCOM</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>SAGRA</h3>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Equipo 2 isw
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
