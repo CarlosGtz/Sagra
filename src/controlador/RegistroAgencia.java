@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.SagraDelegate;
 import modelo.dto.AgenciaDTO;
+import modelo.dto.UsuarioAgenciaDTO;
 
 /**
  * Servlet implementation class RegistroAgencia
@@ -40,19 +41,47 @@ public class RegistroAgencia extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SagraDelegate del = new SagraDelegate();
-		AgenciaDTO dto = new AgenciaDTO();
+		UsuarioAgenciaDTO dto = new UsuarioAgenciaDTO();
+		AgenciaDTO aDto = new AgenciaDTO();
+		/*---------UsuarioAgenciaDTO--------*/
 		String nombre;
 		String usuario;
-		String email;
 		String pass;
-		nombre = request.getParameter("nombreEmp");
-		usuario = request.getParameter("usuarioEmp");
-		email = request.getParameter("email");
+		String apellidos;
+		/*---------AgenciaDTO---------------*/		
+		String RazonSocial;
+		String RFC;
+		String cuenta;
+		String clabe;
+		String contacto_direccion;
+		String contacto_telefono;
+		String contacto_sitioweb;
+		/*---------------------------------*/
+		nombre = request.getParameter("nombreUsr");
+		usuario = request.getParameter("usuarioNom");		
 		pass = request.getParameter("pass");
+		apellidos = request.getParameter("apellidos");
+		
+		RazonSocial = request.getParameter("raz_soc");
+		RFC = request.getParameter("rfc");
+		cuenta = request.getParameter("nocuenta");
+		clabe = request.getParameter("clabe");
+		contacto_direccion = request.getParameter("direccion");
+		contacto_telefono = request.getParameter("telefonico");
+		contacto_sitioweb = request.getParameter("website");
+		
 		dto.setNombre(nombre);
 		dto.setUsuario(usuario);
-		dto.setEmail(email);
+		dto.setApellidos(apellidos);
 		dto.setPass(pass);
+		
+		aDto.setRazonSocial(RazonSocial);
+		aDto.setRFC(RFC);
+		aDto.setCuenta(cuenta);
+		aDto.setClabe(clabe);
+		aDto.setContacto_direccion(contacto_direccion);
+		aDto.setContacto_telefono(contacto_telefono);
+		aDto.setContacto_sitioweb(contacto_sitioweb);
 		try {
 			del.crearUsuarioAgencia(dto);
 			response.sendRedirect("index.html");

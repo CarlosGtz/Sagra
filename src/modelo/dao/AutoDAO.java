@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.dto.AgenciaDTO;
+import modelo.dto.UsuarioAgenciaDTO;
 import modelo.dto.AutoDTO;
 
 public class AutoDAO {
