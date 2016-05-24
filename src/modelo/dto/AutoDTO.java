@@ -8,6 +8,8 @@ public class AutoDTO {
 	private String año;
 	private String numeroPasajeros;
 	private String tipo;
+	private boolean disponible;
+	private String fecha_regreso;
 	
 	
 	public String getModelo() {
@@ -51,6 +53,18 @@ public class AutoDTO {
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public boolean getDisponible() {
+		return disponible;
+	}
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
+	}
+	public String getfecha_regreso() {
+		return fecha_regreso;
+	}
+	public void setfecha_regreso(String fecha_regreso) {
+		this.fecha_regreso = fecha_regreso;
 	}
 	@Override
 	public String toString() {

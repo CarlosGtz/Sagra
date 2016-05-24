@@ -36,6 +36,7 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+
                     <li id="btnLogin" >
                         <a href="index.html" >Iniciar Sesión</a>
                     </li>
@@ -84,23 +85,81 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-sm-2" for="usuario">Nombre de Usuario:</label>
-                  <div class="col-sm-10">
-                    <input type="text" name= "usuario" class="form-control" id="usuario" placeholder="Ingresar usuario">
-                  </div>
-                </div>
-                <div class="form-group">
                   <label class="control-label col-sm-2" for="email">Email:</label>
                   <div class="col-sm-10">
                     <input type="email" name="email" class="form-control" id="email" placeholder="Ingresar email">
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="control-label col-sm-2" for="usuario">Nombre de Usuario:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name= "usuario" class="form-control" id="usuario" placeholder="Ingresar usuario">
+                  </div>
+                </div>
+                
+                <div class="form-group">
                   <label class="control-label col-sm-2" for="pwd">Password:</label>
                   <div class="col-sm-10"> 
                     <input type="password" name="pass" class="form-control" id="pwd" placeholder="Ingrese una Contraseña">
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="fec_nac">Fecha de Nacimiento </label>
+                  <div class="col-sm-10"> 
+                    <input type="date" name="fec_nac" class="form-control" id="fec_nac" placeholder="Ingrese fecha de nacimiento dd/mm/aaaa">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="rfc">RFC:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="rfc" class="form-control" id="rfc" placeholder="Ingrese RFC">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="curp">CURP:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="curp" class="form-control" id="curp" placeholder="Ingrese CURP">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="notarjeta">Numero de Tarjeta:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="notarjeta" class="form-control" id="notarjeta" placeholder="Ingrese Numero de Tarjeta">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="cadtarjeta">Caducidad Tarjeta: (mm/aa)</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="cadtarjeta" class="form-control" id="cadtarjeta" placeholder="Ingrese Caducidad de Tarjeta (mm/aa)">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="codtarjeta">Codigo de Tarjeta:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="codtarjeta" class="form-control" id="codtarjeta" placeholder="Ingrese Codigo de Tarjeta">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="ine">Numero de INE:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="ine" class="form-control" id="ine" placeholder="Ingrese Numero de INE">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="telefono">Numero de Telefono:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Ingrese Numero de Telefono">
+                  </div>
+                </div>
+
                 <div class="form-group"> 
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Registrarse</button>
@@ -111,10 +170,20 @@
 
               <!--Formulario Agencia --> 
               <form  id="centro_registro2" class="form-horizontal " role="form" action="RegistroAgencia" method="post">
+
+
+
                 <div class="form-group">
                   <label class="control-label col-sm-2" for="nombreEmpresa">Nombre de la Empresa:</label>
                   <div class="col-sm-10">
                     <input type="text" name="nombreEmp" class="form-control" id="nombreEmpresa" placeholder="Ingresa Nombre de la Empresa">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="raz_soc">Razon Social:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="raz_soc" class="form-control" id="raz_soc" placeholder="Ingrese Razon Social">
                   </div>
                 </div>
 
@@ -138,7 +207,71 @@
                   <div class="col-sm-10"> 
                     <input type="password" name="pass" class="form-control" id="pwd" placeholder="Ingrese una Contraseña">
                   </div>
-                </div>                
+                </div> 
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nombreUsuario_">Nombre:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="usuarioEmp_" class="form-control" id="nUsuarioEmpresa_" placeholder="Ingrese Nombre">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="apellidos">Apellidos:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Ingrese los Apellidos">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="apellidos">Apellidos:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Ingrese los Apellidos">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="rfc">RFC:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="rfc" class="form-control" id="rfc" placeholder="Ingrese RFC">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="nocuenta">Numero de Cuenta:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="nocuenta" class="form-control" id="nocuenta" placeholder="Ingrese Numero de Cuenta">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="clabe">Cuenta Clabe:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="clabe" class="form-control" id="clabe" placeholder="Ingrese Numero de Cuenta Clabe">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="direccion">Direccion:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Ingrese Direccion">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="telefonico">Numero Telefono:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="telefonico" class="form-control" id="telefonico" placeholder="Ingrese Numero Telefono">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="website">Sitio Web:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="website" class="form-control" id="website" placeholder="Ingrese Sitio Web">
+                  </div>
+                </div>
+                
                 <div class="form-group"> 
                   <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Registrarse</button>
