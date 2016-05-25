@@ -94,5 +94,9 @@ public class SagraDelegate {
 	public void actualizarUsuarioAgencia(UsuarioAgenciaDTO dto)throws SQLException{
 		usrAgeFacade.actualizar(dto);
 	}
+	
+	public void actualizarUsuario(UsuarioDTO dto) throws SQLException{
+		artFacade.actualizar(dto);
+	}
 
 }

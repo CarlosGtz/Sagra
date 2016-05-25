@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.dto.UsuarioAgenciaDTO;
 import modelo.dto.UsuarioDTO;
 
 /**
@@ -27,7 +28,35 @@ public class UsuarioDAO {
     private static final String SQL_INSERT ="insert into usuario ("
     +"nombre, apellidos,user_name,user_password,e_mail,fecha_nacimiento,RFC,CURP,tarjeta_no,tarjeta_fechalim,tarjeta_codigo,cred_elector,contacto_telefono)"+
     		" values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = ""+
+			"update usuario set nombre=?, apellidos=?, user_name=?, user_password=?, e_mail=?,fecha_nacimiento=?, RFC=?,CURP=?,tarjeta_no=?,tarjeta_fechalim=?, tarjeta_codigo=?,cred_elector=?,contacto_telefono=? where IDusuario=?";
 
+    
+    public void update(UsuarioDTO dto, Connection conn) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(SQL_UPDATE);
+            
+            ps.setString(1, dto.getNombre());
+            ps.setString(2, dto.getApellidos());
+            ps.setString(3, dto.getUsuario());
+            ps.setString(4, dto.getPass());
+            ps.setString(5, dto.getEmail());
+            ps.setDate(6, new java.sql.Date(dto.getFecha_nacimiento().getTime()));
+            ps.setString(7, dto.getRFC());
+            ps.setString(8, dto.getCURP());
+            ps.setString(9, dto.getTarjeta_no());
+            ps.setString(10, dto.getTarjeta_fechalim());
+            ps.setString(11, dto.getTarjeta_codigo());
+            ps.setString(12, dto.getCred_elector());
+            ps.setString(13, dto.getContacto_telefono());
+            ps.setString(14, dto.getIdUser());
+            ps.executeUpdate();
+        } finally {
+            cerrar(ps);
+            cerrar(conn);
+        }
+    }
     public UsuarioDTO select(UsuarioDTO dto, Connection conn) throws SQLException {
 
         PreparedStatement ps = null;
@@ -78,6 +107,7 @@ public class UsuarioDAO {
         List results = new ArrayList();
         while (rs.next()) {
             UsuarioDTO dto = new UsuarioDTO();
+            dto.setIdUser(rs.getString("IDusuario"));
             dto.setNombre(rs.getString("nombre"));
             dto.setApellidos(rs.getString("apellidos"));
             dto.setUsuario(rs.getString("user_name"));

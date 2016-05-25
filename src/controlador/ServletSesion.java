@@ -62,7 +62,7 @@ public class ServletSesion extends HttpServlet {
 				if (res != null) {
 					
 					if (pass.equals(res.getPass())) {
-						
+						sesion.setAttribute("idUser", res.getIdUser());
 						sesion.setAttribute("user", userName);
 						
 						try {

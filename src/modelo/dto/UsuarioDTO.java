@@ -25,9 +25,18 @@ public class UsuarioDTO {
     private String tarjeta_codigo;
     private String cred_elector;
     private String contacto_telefono;
+    private String idUser;
     
     
-    public Date getFecha_nacimiento() {
+    public String getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(String idUser) {
+		this.idUser = idUser;
+	}
+
+	public Date getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
 

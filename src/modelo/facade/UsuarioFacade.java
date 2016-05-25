@@ -34,9 +34,9 @@ public class UsuarioFacade {
     public UsuarioDTO leer(UsuarioDTO dto)throws SQLException {
         return dao.select(dto, cnn);
     }
-    //public void actualiza(UsuarioDTO dto)throws SQLException {
-    //     dao.update(dto, cnn);
-    //}
+    public void actualizar(UsuarioDTO dto)throws SQLException {
+        dao.update(dto, cnn);
+    }
     //public void elimina(UsuarioDTO dto)throws SQLException {
     //     dao.delete(dto, cnn);
     //}
