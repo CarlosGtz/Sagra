@@ -22,7 +22,7 @@ import modelo.dto.UsuarioDTO;
 public class UsuarioDAO {
 
     private static final String SQL_SELECT
-            = "SELECT nombre, apellidos, user_password"
+            = "SELECT *"
             + "  FROM usuario where user_name= ?";
     private static final String SQL_INSERT ="insert into usuario ("
     +"nombre, apellidos,user_name,user_password,e_mail,fecha_nacimiento,RFC,CURP,tarjeta_no,tarjeta_fechalim,tarjeta_codigo,cred_elector,contacto_telefono)"+
@@ -80,7 +80,17 @@ public class UsuarioDAO {
             UsuarioDTO dto = new UsuarioDTO();
             dto.setNombre(rs.getString("nombre"));
             dto.setApellidos(rs.getString("apellidos"));
+            dto.setUsuario(rs.getString("user_name"));
             dto.setPass(rs.getString("user_password"));
+            dto.setEmail(rs.getString("e_mail"));
+            dto.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+            dto.setRFC(rs.getString("RFC"));
+            dto.setCURP(rs.getString("CURP"));
+            dto.setTarjeta_no(rs.getString("tarjeta_no"));
+            dto.setTarjeta_fechalim(rs.getString("tarjeta_fechalim"));
+            dto.setTarjeta_codigo(rs.getString("tarjeta_codigo"));
+            dto.setCred_elector(rs.getString("cred_elector"));
+            dto.setContacto_telefono(rs.getString("contacto_telefono"));
             results.add(dto);
         }
         return results;

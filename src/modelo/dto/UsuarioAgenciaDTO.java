@@ -6,6 +6,8 @@ public class UsuarioAgenciaDTO {
 	private String pass;
 	private String RFCagencia;
 	private String apellidos;
+	
+	
 	public String getNombre() {
 		return nombre;
 	}

@@ -2,6 +2,7 @@ package modelo.facade;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import modelo.dao.UsuarioAgenciaDAO;
 import modelo.dao.UsuarioDAO;
@@ -18,6 +19,10 @@ public class UsuarioAgenciaFacade {
     
     public int crear(UsuarioAgenciaDTO dto) throws SQLException {
          return dao.create(dto, cnn);
+    }
+    
+    public UsuarioAgenciaDTO leer(UsuarioAgenciaDTO dto) throws SQLException{
+    	return dao.select(dto, cnn);
     }
 
 }

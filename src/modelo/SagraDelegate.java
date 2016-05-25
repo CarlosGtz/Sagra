@@ -72,5 +72,10 @@ public class SagraDelegate {
 		ageFacade.crear(aDto);
 		crearUsuarioAgencia(dto);
 	}
+	
+	public UsuarioAgenciaDTO leerUsuarioAgencia(UsuarioAgenciaDTO dto)throws SQLException{
+		return usrAgeFacade.leer(dto);
+		
+	}
 
 }

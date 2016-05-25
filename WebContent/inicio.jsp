@@ -8,7 +8,7 @@
   <%
             //inicio del scriplet
             String usuario = null;
-  			usuario = (String) session.getAttribute("nombre");
+  			usuario = (String) session.getAttribute("user");
   			if(usuario == null){
   				response.sendRedirect("index.html");
   			}
