@@ -4,7 +4,7 @@
       <%
             //inicio del scriplet
             String usuario = null;
-  			usuario = (String) session.getAttribute("nombre");
+  			usuario = (String) session.getAttribute("user");
   			if(usuario == null){
   				response.sendRedirect("index.html");
   			}
@@ -47,10 +47,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" id="lista">
             <li><a href="inicio.jsp">Autos en Renta</a></li>
-            <li><a href="#">Agencias</a></li>
             <li class="paginaActiva"><a href="#">Busqueda Personalizada</a></li>
-            <li><a href="#">Perfil</a></li>
-            <li><a href="#">Configuración</a></li>
+            <li><a href="perfilAgencia.jsp">Perfil</a></li>
             <li><a href="ServletLogout">Salir</a></li>
           </ul>
          

@@ -23,4 +23,8 @@ public class AutoFacade {
     public List listar() throws SQLException {
         return dao.selectAll(cnn);
     }
+    
+    public List listarXAgencia(AutoDTO dto)throws SQLException{
+    	return dao.selectAllxAgecnia(dto,cnn);
+    }
 }

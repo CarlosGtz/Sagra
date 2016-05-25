@@ -58,9 +58,9 @@ public class RegistroAuto extends HttpServlet {
 			throws ServletException, IOException {
 		isMultipart = ServletFileUpload.isMultipartContent(request);
 		filePath = request.getServletContext().getRealPath("/img/");
-		System.out.println(filePath);
 		
-		String []datosDTO = new String[7];
+		
+		String []datosDTO = new String[8];
 		
 		DiskFileItemFactory factory = new DiskFileItemFactory();
         // maximum size that will be stored in memory
@@ -92,8 +92,7 @@ try {
                     boolean isInMemory = fi.isInMemory();
                     long sizeInBytes = fi.getSize();
                     // Write the file
-                    file = new File(filePath + datosDTO[1]);
-                   
+                    file = new File(filePath + datosDTO[1]);                   
                     fi.write(file);                  
                 }else{
                     datosDTO[j] = fi.getString();
@@ -119,6 +118,7 @@ try {
 		dto.setAño(datosDTO[4]);
 		dto.setNumeroPasajeros(datosDTO[5]);
 		dto.setTipo(datosDTO[6]);
+		dto.setCosto(datosDTO[7]);
 		System.out.println(dto);
 
 		try {

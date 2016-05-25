@@ -24,5 +24,7 @@ public class UsuarioAgenciaFacade {
     public UsuarioAgenciaDTO leer(UsuarioAgenciaDTO dto) throws SQLException{
     	return dao.select(dto, cnn);
     }
-
+    public void actualizar(UsuarioAgenciaDTO dto)throws SQLException{
+    	dao.update(dto, cnn);
+    }
 }

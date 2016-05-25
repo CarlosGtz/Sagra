@@ -49,7 +49,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li ><a href="inicioAgencia.jsp">Autos</a></li>
             <li class="paginaActiva"><a href="registro_Auto.html">Agregar Autos</a></li>
-            <li><a href="#">Perfil de la Agencia</a></li>
+            <li><a href="perfilAgencia.jsp">Perfil de la Agencia</a></li>
             <li><a href="index.html">Salir</a></li>
           </ul>
 
@@ -116,6 +116,12 @@
 			      <label for="inputTauto" class="col-lg-2 control-label">Tipo de Auto</label>
 			      <div class="col-lg-10">
 			        <input type="number" name="tipo" class="form-control" id="inputTauto" placeholder="Tipo de Auto"  required> 
+			      </div>
+			    </div>
+			    <div class="form-group">
+			      <label for="inputTauto" class="col-lg-2 control-label">Costo</label>
+			      <div class="col-lg-10">
+			        <input type="number" name="costo" class="form-control" id="inputTauto" placeholder="Tipo de Auto"  required> 
 			      </div>
 			    </div>
 			    <div class="form-group">

@@ -1,10 +1,11 @@
 <%@page import="modelo.SagraDelegate"%>
 <%@page import="modelo.dao.AutoDAO"%>
+<%@ page import="java.util.List" %>
+<%@ page import="modelo.dto.AutoDTO" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ page import="java.util.List" %>
-<%@ page import="modelo.dto.AutoDTO" %>
 
  <%
             //inicio del scriplet
@@ -56,7 +57,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="paginaActiva"><a href="inicioAgencia.html">Autos</a></li>
             <li><a href="registro_Auto.jsp">Agregar Autos</a></li>
-            <li><a href="#">Perfil de la Agencia</a></li>
+            <li><a href="perfilAgencia.jsp">Perfil de la Agencia</a></li>
             <li><a href="index.html">Salir</a></li>
           </ul>
 
@@ -69,28 +70,7 @@
         <div class="col-lg-12">
           <h1 class="page-header">Autos en Renta</h1>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+          
 
           <h2 class="sub-header">Lista de Autos</h2>
           <div class="table-responsive">
@@ -109,8 +89,10 @@
                 <% 
               	SagraDelegate del = new SagraDelegate();
     			List results;
+    			AutoDTO aDto = new AutoDTO();
+    			aDto.setRFCAgencia(RFC);
     			
-    			results = del.listarAutos();
+    			results = del.listarAutosxAgencia(aDto);
     			
     			int tam = results.size();
     			for (int i=0;i<tam;i++) {

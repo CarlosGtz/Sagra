@@ -11,9 +11,16 @@ public class AutoDTO {
 	private String tipo;
 	private boolean disponible;
 	private String fecha_regreso;//opc
+	private String costo;
 	
 	
 
+	public String getCosto() {
+		return costo;
+	}
+	public void setCosto(String costo) {
+		this.costo = costo;
+	}
 	public String getRFCAgencia() {
 		return RFCAgencia;
 	}

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.dto.AgenciaDTO;
 import modelo.dto.UsuarioAgenciaDTO;
 import modelo.dto.UsuarioDTO;
 
@@ -15,6 +16,9 @@ public class UsuarioAgenciaDAO {
 			"values (?,?,?,?,?)";
 	 private static final String SQL_SELECT = "SELECT *"
 		     + "  FROM agencia_usuario where user_name= ?";
+	 private static final String SQL_UPDATE = ""+
+				"update agencia_usuario set RFCagencia=?, user_name=?, user_password=?, nombre=?, apellidos=?  where RFCagencia=?";
+				
 	
 	public int create(UsuarioAgenciaDTO dto, Connection conn) throws SQLException {
         PreparedStatement ps = null;
@@ -24,7 +28,8 @@ public class UsuarioAgenciaDAO {
             ps.setString(2, dto.getUsuario());
             ps.setString(3, dto.getPass());
             ps.setString(4, dto.getNombre());
-            ps.setString(5, dto.getApellidos());          
+            ps.setString(5, dto.getApellidos());     
+            
             return ps.executeUpdate();
         } finally {
             cerrar(ps);
@@ -52,6 +57,23 @@ public class UsuarioAgenciaDAO {
             cerrar(conn);
         }
         
+    }
+	
+	public void update(UsuarioAgenciaDTO dto, Connection conn) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(SQL_UPDATE);
+            ps.setString(1, dto.getRFCagencia());
+            ps.setString(2, dto.getUsuario());
+            ps.setString(3, dto.getPass());
+            ps.setString(4, dto.getNombre());
+            ps.setString(5, dto.getApellidos()); 
+            ps.setString(6, dto.getRFCagencia());
+            ps.executeUpdate();
+        } finally {
+            cerrar(ps);
+            cerrar(conn);
+        }
     }
 	
 	

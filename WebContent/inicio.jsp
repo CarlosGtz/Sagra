@@ -50,9 +50,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right" id="lista">
             <li class="paginaActiva"><a href="#">Autos en Renta</a></li>
-            <li><a href="#">Agencias</a></li>
             <li><a href="buscar_Auto.jsp">Busqueda Personalizada</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="perfil.jsp">Perfil</a></li>
             <li><a href="ServletLogout">Salir</a></li>
           </ul>
          
@@ -66,29 +65,6 @@
         <div class="col-lg-12">
 
           <h1 class="page-header">Autos en Renta</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="img/auto1.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="img/auto2.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="img/auto3.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="img/auto4.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
 
           <h2 class="sub-header">Lista de Autos</h2>
           <div class="table-responsive">
@@ -114,6 +90,9 @@
     			for (int i=0;i<tam;i++) {
     		          AutoDTO dto;
     		          dto = (AutoDTO) results.get(i);
+    		          if(dto.getDisponible()){
+    		        	  
+    		          }
     		          out.print("<tr>");
     		          out.print("<td>"+dto.getPlacas()+"</td>");
     		          out.print("<td>"+dto.getModelo()+"</td>");

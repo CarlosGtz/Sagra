@@ -12,9 +12,13 @@ import modelo.dto.AutoDTO;
 
 public class AutoDAO {
 	private static final String SQL_INSERT =""+
-			"insert into autos (RFCAgencia,placas,modelo,color,marca,anio,no_pasajeros,tipo_auto,disponible)"+
-			"values (?,?,?,?,?,?,?,?,?)";
-	private static final String SQL_SELECT_ALL = "select marca,placas,color,modelo,tipo_auto,anio,no_pasajeros from autos ORDER BY RFCAgencia";
+			"insert into autos (RFCAgencia,placas,modelo,color,marca,anio,no_pasajeros,tipo_auto,disponible,costo_renta)"+
+			"values (?,?,?,?,?,?,?,?,?,?)";
+	private static final String SQL_UPDATE =""+
+			"update autos set";
+	private static final String SQL_SELECT_ALL = "select * from autos ORDER BY RFCAgencia";
+	private static final String SQL_SELECT_ALL_AGENCIA = "select * from autos where RFCagencia = ?";
+	
 	
 	public int create(AutoDTO dto, Connection conn) throws SQLException {
         PreparedStatement ps = null;
@@ -30,6 +34,7 @@ public class AutoDAO {
             ps.setString(7, dto.getNumeroPasajeros());
             ps.setString(8, dto.getTipo());
             ps.setString(9, "1");
+            ps.setString(10, dto.getCosto());
             return ps.executeUpdate();
         } finally {
             cerrar(ps);
@@ -56,6 +61,27 @@ public class AutoDAO {
             cerrar(conn);
         }
     }
+    
+    public List selectAllxAgecnia(AutoDTO dto,Connection conn) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(SQL_SELECT_ALL_AGENCIA);
+            ps.setString(1, dto.getRFCAgencia());
+            rs = ps.executeQuery();
+            
+            List results = getResults(rs);
+            if (results.size() > 0) {
+                return results;
+            } else {
+                return null;
+            }
+        } finally {
+            cerrar(rs);
+            cerrar(ps);
+            cerrar(conn);
+        }
+    }
 	
     private List getResults(ResultSet rs) throws SQLException {
         List results = new ArrayList();
@@ -67,7 +93,11 @@ public class AutoDAO {
             dto.setModelo(rs.getString("modelo"));
             dto.setTipo(rs.getString("tipo_auto"));
             dto.setAño(rs.getString("anio"));
-            dto.setNumeroPasajeros(rs.getString("no_pasajeros"));            
+            dto.setNumeroPasajeros(rs.getString("no_pasajeros")); 
+            dto.setDisponible(rs.getBoolean("disponible"));
+            dto.setfecha_regreso(rs.getString("fecha_regreso"));
+            dto.setRFCAgencia(rs.getString("RFCagencia"));
+            dto.setCosto(rs.getString("costo_renta"));
             results.add(dto);
         }
         return results;

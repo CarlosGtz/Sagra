@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import modelo.dto.UsuarioAgenciaDTO;
+import modelo.dao.UsuarioAgenciaDAO;
 import modelo.dto.AgenciaDTO;
 import modelo.dto.AutoDTO;
 import modelo.dto.UsuarioDTO;
@@ -67,6 +68,11 @@ public class SagraDelegate {
 	public List listarAutos() throws SQLException {
 		return autoFacade.listar();
 	}
+	
+	public List listarAutosxAgencia(AutoDTO dto) throws SQLException {
+		return autoFacade.listarXAgencia(dto);
+	}
+	
 
 	public void crearAgencia(UsuarioAgenciaDTO dto, AgenciaDTO aDto) throws SQLException{	
 		ageFacade.crear(aDto);
@@ -75,7 +81,18 @@ public class SagraDelegate {
 	
 	public UsuarioAgenciaDTO leerUsuarioAgencia(UsuarioAgenciaDTO dto)throws SQLException{
 		return usrAgeFacade.leer(dto);
-		
+	}
+	
+	public AgenciaDTO leerAgecia(AgenciaDTO dto)throws SQLException{
+		return ageFacade.leer(dto);
+	}
+	public void actualizarAgencia(AgenciaDTO dto,UsuarioAgenciaDTO aDto) throws SQLException{
+		ageFacade.actualizar(dto);
+		actualizarUsuarioAgencia(aDto);
+	}
+	
+	public void actualizarUsuarioAgencia(UsuarioAgenciaDTO dto)throws SQLException{
+		usrAgeFacade.actualizar(dto);
 	}
 
 }
