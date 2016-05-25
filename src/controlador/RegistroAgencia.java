@@ -48,7 +48,8 @@ public class RegistroAgencia extends HttpServlet {
 		String usuario;
 		String pass;
 		String apellidos;
-		/*---------AgenciaDTO---------------*/		
+		/*---------AgenciaDTO---------------*/
+		String nombreEmp;
 		String RazonSocial;
 		String RFC;
 		String cuenta;
@@ -57,11 +58,14 @@ public class RegistroAgencia extends HttpServlet {
 		String contacto_telefono;
 		String contacto_sitioweb;
 		/*---------------------------------*/
-		nombre = request.getParameter("nombreUsr");
-		usuario = request.getParameter("usuarioNom");		
+		
+		
+		nombre = request.getParameter("usuarioNom");
+		usuario = request.getParameter("usuarioEmp");		
 		pass = request.getParameter("pass");
 		apellidos = request.getParameter("apellidos");
 		
+		nombreEmp = request.getParameter("nombreEmp");
 		RazonSocial = request.getParameter("raz_soc");
 		RFC = request.getParameter("rfc");
 		cuenta = request.getParameter("nocuenta");
@@ -74,7 +78,9 @@ public class RegistroAgencia extends HttpServlet {
 		dto.setUsuario(usuario);
 		dto.setApellidos(apellidos);
 		dto.setPass(pass);
+		dto.setRFCagencia(RFC);
 		
+		aDto.setNombre(nombreEmp);
 		aDto.setRazonSocial(RazonSocial);
 		aDto.setRFC(RFC);
 		aDto.setCuenta(cuenta);
@@ -83,7 +89,7 @@ public class RegistroAgencia extends HttpServlet {
 		aDto.setContacto_telefono(contacto_telefono);
 		aDto.setContacto_sitioweb(contacto_sitioweb);
 		try {
-			del.crearUsuarioAgencia(dto);
+			del.crearAgencia(dto,aDto);
 			response.sendRedirect("index.html");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

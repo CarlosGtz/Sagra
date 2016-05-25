@@ -6,6 +6,7 @@
 package modelo.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,8 @@ public class UsuarioDAO {
             = "SELECT nombre, apellidos, user_password"
             + "  FROM usuario where user_name= ?";
     private static final String SQL_INSERT ="insert into usuario ("
-    +"nombre, apellidos,user_name,user_password,e_mail,RFC,CURP,tarjeta_no,contacto_telefono) values (?,?,?,?,?,?,?,?,?)";
+    +"nombre, apellidos,user_name,user_password,e_mail,fecha_nacimiento,RFC,CURP,tarjeta_no,tarjeta_fechalim,tarjeta_codigo,cred_elector,contacto_telefono)"+
+    		" values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public UsuarioDTO select(UsuarioDTO dto, Connection conn) throws SQLException {
 
@@ -57,10 +59,14 @@ public class UsuarioDAO {
             ps.setString(3, dto.getUsuario());
             ps.setString(4, dto.getPass());
             ps.setString(5, dto.getEmail());
-            ps.setString(6, "RFC");
-            ps.setString(7, "CURP");
-            ps.setString(8, "tarjeta");
-            ps.setString(9, "contacto");
+            ps.setDate(6, new java.sql.Date(dto.getFecha_nacimiento().getTime()));
+            ps.setString(7, dto.getRFC());
+            ps.setString(8, dto.getCURP());
+            ps.setString(9, dto.getTarjeta_no());
+            ps.setString(10, dto.getTarjeta_fechalim());
+            ps.setString(11, dto.getTarjeta_codigo());
+            ps.setString(12, dto.getCred_elector());
+            ps.setString(13, dto.getContacto_telefono());
            return ps.executeUpdate();
         } finally {
             cerrar(ps);

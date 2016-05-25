@@ -11,14 +11,16 @@ import modelo.dto.UsuarioAgenciaDTO;
 import modelo.dto.AutoDTO;
 
 public class AutoDAO {
-	private static final String SQL_INSERT ="insert into autos (IDagencia,placas,modelo,color,marca,anio,no_pasajeros,tipo_auto,disponible)"+
+	private static final String SQL_INSERT =""+
+			"insert into autos (IDagencia,placas,modelo,color,marca,anio,no_pasajeros,tipo_auto,disponible)"+
 			"values (?,?,?,?,?,?,?,?,?)";
-	private static final String SQL_SELECT_ALL = "select marca,placas,color,modelo,tipo_auto,anio,no_pasajeros from autos";
+	private static final String SQL_SELECT_ALL = "select marca,placas,color,modelo,tipo_auto,anio,no_pasajeros from autos ORDER BY IDagencia";
 	
 	public int create(AutoDTO dto, Connection conn) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(SQL_INSERT);
+            //ps.setInt(1, dto.getIDagencia());se obtendra el id de la sesion de la agencia
             ps.setString(1, "1");
             ps.setString(2, dto.getPlacas());
             ps.setString(3, dto.getModelo());

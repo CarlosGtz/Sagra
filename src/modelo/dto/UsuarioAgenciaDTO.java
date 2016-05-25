@@ -4,7 +4,7 @@ public class UsuarioAgenciaDTO {
 	private String nombre;
 	private String usuario;
 	private String pass;
-	private String IDAgencia;
+	private String RFCagencia;
 	private String apellidos;
 	public String getNombre() {
 		return nombre;
@@ -24,17 +24,23 @@ public class UsuarioAgenciaDTO {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public String getIDAgencia() {
-		return IDAgencia;
+	
+	public String getRFCagencia() {
+		return RFCagencia;
 	}
-	public void setIDAgencia(String iDAgencia) {
-		IDAgencia = iDAgencia;
+	public void setRFCagencia(String rFCagencia) {
+		RFCagencia = rFCagencia;
 	}
 	public String getApellidos() {
 		return apellidos;
 	}
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
+	}
+	@Override
+	public String toString() {
+		return "UsuarioAgenciaDTO [nombre=" + nombre + ", usuario=" + usuario + ", pass=" + pass + ", RFCagencia="
+				+ RFCagencia + ", apellidos=" + apellidos + "]";
 	}
 	
 	

@@ -1,6 +1,7 @@
 package modelo.dto;
 
 public class AutoDTO {
+	private int IDagencia;
 	private String modelo;
 	private String placas;
 	private String color;
@@ -9,8 +10,21 @@ public class AutoDTO {
 	private String numeroPasajeros;
 	private String tipo;
 	private boolean disponible;
-	private String fecha_regreso;
+	private String fecha_regreso;//opc
 	
+	
+	public int getIDagencia() {
+		return IDagencia;
+	}
+	public void setIDagencia(int iDagencia) {
+		IDagencia = iDagencia;
+	}
+	public String getFecha_regreso() {
+		return fecha_regreso;
+	}
+	public void setFecha_regreso(String fecha_regreso) {
+		this.fecha_regreso = fecha_regreso;
+	}
 	
 	public String getModelo() {
 		return modelo;

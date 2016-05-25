@@ -9,17 +9,17 @@ import modelo.dto.UsuarioAgenciaDTO;
 import modelo.dto.UsuarioDTO;
 
 public class UsuarioAgenciaDAO {
-	private static final String SQL_INSERT ="insert into agencia_usuario (IDagencia,user_name,user_password,nombre,apellidos)"+
+	private static final String SQL_INSERT ="insert into agencia_usuario (RFCagencia,user_name,user_password,nombre,apellidos)"+
 			"values (?,?,?,?,?)";
 	public int create(UsuarioAgenciaDTO dto, Connection conn) throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(SQL_INSERT);
-            ps.setString(1, "1");
+            ps.setString(1, dto.getRFCagencia());
             ps.setString(2, dto.getUsuario());
             ps.setString(3, dto.getPass());
             ps.setString(4, dto.getNombre());
-            ps.setString(5, "");          
+            ps.setString(5, dto.getApellidos());          
             return ps.executeUpdate();
         } finally {
             cerrar(ps);

@@ -44,6 +44,7 @@ public class SagraDelegate {
 		artFacade = new UsuarioFacade(cnn);
 		usrAgeFacade = new UsuarioAgenciaFacade(cnn);
 		autoFacade = new AutoFacade(cnn);
+		ageFacade = new AgenciaFacade(cnn);
 	}
 
 	public UsuarioDTO leerUsuario(UsuarioDTO dto) throws SQLException {
@@ -67,9 +68,9 @@ public class SagraDelegate {
 		return autoFacade.listar();
 	}
 
-	public void crearAgencia(UsuarioAgenciaDTO dto, AgenciaDTO aDto) throws SQLException{
-		crearUsuarioAgencia(dto);
+	public void crearAgencia(UsuarioAgenciaDTO dto, AgenciaDTO aDto) throws SQLException{	
 		ageFacade.crear(aDto);
+		crearUsuarioAgencia(dto);
 	}
 
 }
