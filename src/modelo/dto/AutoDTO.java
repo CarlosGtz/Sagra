@@ -90,10 +90,11 @@ public class AutoDTO {
 	}
 	@Override
 	public String toString() {
-		return "AutoDTO [modelo=" + modelo + ", placas=" + placas + ", color=" + color + ", marca=" + marca + ", año="
-				+ año + ", numeroPasajeros=" + numeroPasajeros + ", tipo=" + tipo + ", disponible=" + disponible
-				+ ", fecha_regreso=" + fecha_regreso + "]";
+		return "AutoDTO [RFCAgencia=" + RFCAgencia + ", modelo=" + modelo + ", placas=" + placas + ", color=" + color
+				+ ", marca=" + marca + ", año=" + año + ", numeroPasajeros=" + numeroPasajeros + ", tipo=" + tipo
+				+ ", disponible=" + disponible + ", fecha_regreso=" + fecha_regreso + ", costo=" + costo + "]";
 	}
+	
 
 
 }

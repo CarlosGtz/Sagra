@@ -92,22 +92,28 @@
     			AutoDTO aDto = new AutoDTO();
     			aDto.setRFCAgencia(RFC);
     			
-    			results = del.listarAutosxAgencia(aDto);
-    			
-    			int tam = results.size();
-    			for (int i=0;i<tam;i++) {
-    		          AutoDTO dto;
-    		          dto = (AutoDTO) results.get(i);
-    		          out.print("<tr>");
-    		          out.print("<td>"+dto.getPlacas()+"</td>");
-    		          out.print("<td>"+dto.getModelo()+"</td>");
-    		          out.print("<td>"+dto.getColor()+"</td>");
-    		          out.print("<td>"+dto.getMarca()+"</td>");
-    		          out.print("<td>"+dto.getAño()+"</td>");
-    		          out.print("<td>"+dto.getNumeroPasajeros()+"</td>");
-    		          out.print("</tr>");
-    		          
-    		    }
+    			results = del.listarAutosxAgencia(aDto); 
+    			if(results != null){
+    				int tam = results.size();
+        			System.out.println(tam);
+
+    		        
+        			for (int i=0;i<tam;i++) {
+        		          AutoDTO dto;
+        		          dto = (AutoDTO) results.get(i);
+        		          out.print("<tr>");
+        		          out.print("<td>"+dto.getPlacas()+"</td>");
+        		          out.print("<td>"+dto.getModelo()+"</td>");
+        		          out.print("<td>"+dto.getColor()+"</td>");
+        		          out.print("<td>"+dto.getMarca()+"</td>");
+        		          out.print("<td>"+dto.getAño()+"</td>");
+        		          out.print("<td>"+dto.getNumeroPasajeros()+"</td>");
+        		          out.print("</tr>");
+        		          
+        		    }
+    				
+    			}
+    		
               %>
                
               </tbody>
