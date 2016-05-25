@@ -5,7 +5,20 @@
 <!DOCTYPE html>
 <%@ page import="java.util.List" %>
 <%@ page import="modelo.dto.AutoDTO" %>
-<html lang="en">
+
+ <%
+            //inicio del scriplet
+            String usuario = null;
+ 			String RFC = null;
+ 			RFC = (String) session.getAttribute("RFCagencia");
+  			usuario = (String) session.getAttribute("usrAge");
+  			
+  			System.out.println(RFC+"|"+usuario);
+  			if(usuario == null || RFC == null){
+  				response.sendRedirect("index.html");
+  			}
+        %>
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,9 +55,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="paginaActiva"><a href="inicioAgencia.html">Autos</a></li>
-            <li><a href="registro_Auto.html">Agregar Autos</a></li>
+            <li><a href="registro_Auto.jsp">Agregar Autos</a></li>
             <li><a href="#">Perfil de la Agencia</a></li>
-            <li><a href="#">Configuración</a></li>
             <li><a href="index.html">Salir</a></li>
           </ul>
 

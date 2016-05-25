@@ -95,7 +95,8 @@ public class ServletSesion extends HttpServlet {
 				dtoA.setPass(pass);
 				resA = del.leerUsuarioAgencia(dtoA);
 				if(dtoA.getPass().equals(pass)){
-					sesion.setAttribute("RFCagencia", dtoA.getRFCagencia());
+					sesion.setAttribute("RFCagencia", resA.getRFCagencia());
+					sesion.setAttribute("usrAge", userName);
 					try {
 						response.sendRedirect("inicioAgencia.jsp");
 					} catch (IOException ex) {

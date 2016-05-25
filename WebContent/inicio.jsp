@@ -53,7 +53,6 @@
             <li><a href="#">Agencias</a></li>
             <li><a href="buscar_Auto.jsp">Busqueda Personalizada</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a href="#">Configuración</a></li>
             <li><a href="ServletLogout">Salir</a></li>
           </ul>
          

@@ -29,7 +29,10 @@ public class ServletLogout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 HttpSession s = request.getSession(true);
 			if(s!=null){
-				s.setAttribute("nombre", null);
+				s.setAttribute("RFCagencia", null);
+				s.setAttribute("usrAge", null);
+				s.setAttribute("user", null);
+				
 				response.sendRedirect("index.html");			
 				s.invalidate();
 			}else{

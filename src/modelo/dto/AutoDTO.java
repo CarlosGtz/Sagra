@@ -1,7 +1,7 @@
 package modelo.dto;
 
 public class AutoDTO {
-	private int IDagencia;
+	private String RFCAgencia;
 	private String modelo;
 	private String placas;
 	private String color;
@@ -13,11 +13,12 @@ public class AutoDTO {
 	private String fecha_regreso;//opc
 	
 	
-	public int getIDagencia() {
-		return IDagencia;
+
+	public String getRFCAgencia() {
+		return RFCAgencia;
 	}
-	public void setIDagencia(int iDagencia) {
-		IDagencia = iDagencia;
+	public void setRFCAgencia(String rFCAgencia) {
+		RFCAgencia = rFCAgencia;
 	}
 	public String getFecha_regreso() {
 		return fecha_regreso;
