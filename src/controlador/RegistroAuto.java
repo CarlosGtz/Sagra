@@ -29,8 +29,8 @@ public class RegistroAuto extends HttpServlet {
 	private boolean isMultipart;
 
 	private String filePath;
-	private int maxFileSize = 100 * 1024;
-	private int maxMemSize = 16 * 1024;
+	private int maxFileSize = 200 * 1024;
+	private int maxMemSize = 32 * 1024;
 	private File file;
 
 	/**
@@ -66,7 +66,7 @@ public class RegistroAuto extends HttpServlet {
         // maximum size that will be stored in memory
         factory.setSizeThreshold(maxMemSize);
         // Location to save data that is larger than maxMemSize.
-        factory.setRepository(new File("/img/"));
+        factory.setRepository(new File("/home/carlos"));//cambiar al generar el war por /img/
 
         // Create a new file upload handler
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -92,7 +92,8 @@ try {
                     boolean isInMemory = fi.isInMemory();
                     long sizeInBytes = fi.getSize();
                     // Write the file
-                    file = new File(filePath + datosDTO[1]);                   
+                    file = new File(filePath +"/"+ datosDTO[1]);    
+                    System.out.println(filePath);
                     fi.write(file);                  
                 }else{
                     datosDTO[j] = fi.getString();

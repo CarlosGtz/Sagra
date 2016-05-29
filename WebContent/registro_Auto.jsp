@@ -127,7 +127,7 @@
 			    <div class="form-group">
 			      <label for="inputTauto" class="col-lg-2 control-label">Foto</label>
 			      <div class="col-lg-10">
-			        <input type="file" name="foto" class="form-control" id="inputTauto" placeholder="Tipo de Auto"  required>
+			        <input type="file" name="foto" class="form-control" id="inputTauto"  accept="image/*" placeholder="Tipo de Auto"  required>
 			      </div>
 			    </div>
 			    
