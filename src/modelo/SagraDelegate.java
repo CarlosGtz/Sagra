@@ -86,6 +86,10 @@ public class SagraDelegate {
 	public AgenciaDTO leerAgecia(AgenciaDTO dto)throws SQLException{
 		return ageFacade.leer(dto);
 	}
+	
+	public AutoDTO leerAuto(AutoDTO dto)throws SQLException{
+		return autoFacade.leer(dto);
+	}
 	public void actualizarAgencia(AgenciaDTO dto,UsuarioAgenciaDTO aDto) throws SQLException{
 		ageFacade.actualizar(dto);
 		actualizarUsuarioAgencia(aDto);
@@ -98,5 +102,10 @@ public class SagraDelegate {
 	public void actualizarUsuario(UsuarioDTO dto) throws SQLException{
 		artFacade.actualizar(dto);
 	}
-
+	public void actualizarAuto(AutoDTO dto)throws SQLException{
+		autoFacade.actualizar(dto);
+	}
+	public void eliminarAuto(AutoDTO dto)throws SQLException{
+		autoFacade.eliminar(dto);
+	}
 }

@@ -12,9 +12,16 @@ public class AutoDTO {
 	private boolean disponible;
 	private String fecha_regreso;//opc
 	private String costo;
+	private String id;
 	
 	
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getCosto() {
 		return costo;
 	}
@@ -92,8 +99,11 @@ public class AutoDTO {
 	public String toString() {
 		return "AutoDTO [RFCAgencia=" + RFCAgencia + ", modelo=" + modelo + ", placas=" + placas + ", color=" + color
 				+ ", marca=" + marca + ", año=" + año + ", numeroPasajeros=" + numeroPasajeros + ", tipo=" + tipo
-				+ ", disponible=" + disponible + ", fecha_regreso=" + fecha_regreso + ", costo=" + costo + "]";
+				+ ", disponible=" + disponible + ", fecha_regreso=" + fecha_regreso + ", costo=" + costo + ", id=" + id
+				+ "]";
 	}
+
+
 	
 
 

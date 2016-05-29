@@ -58,7 +58,7 @@
             <li class="paginaActiva"><a href="inicioAgencia.html">Autos</a></li>
             <li><a href="registro_Auto.jsp">Agregar Autos</a></li>
             <li><a href="perfilAgencia.jsp">Perfil de la Agencia</a></li>
-            <li><a href="index.html">Salir</a></li>
+            <li><a href="ServletLogout">Salir</a></li>
           </ul>
 
         </div>
@@ -83,6 +83,7 @@
                   <th>marca</th>
                   <th>Año</th>
                   <th>Número de pasajeros</th>
+                  <th>Accion</th>
                 </tr>
               </thead>
               <tbody>
@@ -108,6 +109,8 @@
         		          out.print("<td>"+dto.getMarca()+"</td>");
         		          out.print("<td>"+dto.getAño()+"</td>");
         		          out.print("<td>"+dto.getNumeroPasajeros()+"</td>");
+        		          out.print("<td><a href=\"auto.jsp?placas="+dto.getPlacas()+"\">Modificar</a></td>");
+        		          out.print("<td><a href=\"ElimniarAuto?placas="+dto.getPlacas()+"\">Elimniar</a></td>");
         		          out.print("</tr>");
         		          
         		    }

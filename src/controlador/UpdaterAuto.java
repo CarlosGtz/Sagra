@@ -21,10 +21,10 @@ import modelo.SagraDelegate;
 import modelo.dto.AutoDTO;
 
 /**
- * Servlet implementation class RegistroAuto
+ * Servlet implementation class UpdaterAuto
  */
-@WebServlet("/RegistroAuto")
-public class RegistroAuto extends HttpServlet {
+@WebServlet("/UpdaterAuto")
+public class UpdaterAuto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private boolean isMultipart;
 
@@ -32,33 +32,29 @@ public class RegistroAuto extends HttpServlet {
 	private int maxFileSize = 200 * 1024;
 	private int maxMemSize = 32 * 1024;
 	private File file;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public UpdaterAuto() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public RegistroAuto() {
-		super();
-		// TODO Auto-generated constructor stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		isMultipart = ServletFileUpload.isMultipartContent(request);
 		filePath = request.getServletContext().getRealPath("/img/");
-		String[] datosDTO = new String[8];
+		String[] datosDTO = new String[9];
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		// maximum size that will be stored in memory
 		factory.setSizeThreshold(maxMemSize);
@@ -87,10 +83,11 @@ public class RegistroAuto extends HttpServlet {
 					boolean isInMemory = fi.isInMemory();
 					long sizeInBytes = fi.getSize();
 					// Write the file
-					file = new File(filePath + "/" + datosDTO[1]);
+					file = new File(filePath + "/" + datosDTO[2]);
 					System.out.println(filePath);
 					fi.write(file);
 				} else {
+					
 					datosDTO[j] = fi.getString();
 					j++;
 				}
@@ -107,23 +104,27 @@ public class RegistroAuto extends HttpServlet {
 
 		HttpSession sesion = request.getSession();
 		dto.setRFCAgencia((String) sesion.getAttribute("RFCagencia"));
-		dto.setModelo(datosDTO[0]);
-		dto.setPlacas(datosDTO[1]);
-		dto.setColor(datosDTO[2]);
-		dto.setMarca(datosDTO[3]);
-		dto.setAño(datosDTO[4]);
-		dto.setNumeroPasajeros(datosDTO[5]);
-		dto.setTipo(datosDTO[6]);
-		dto.setCosto(datosDTO[7]);
+		dto.setId(datosDTO[0]);
+		dto.setModelo(datosDTO[1]);
+		dto.setPlacas(datosDTO[2]);
+		dto.setColor(datosDTO[3]);
+		dto.setMarca(datosDTO[4]);
+		dto.setAño(datosDTO[5]);
+		dto.setNumeroPasajeros(datosDTO[6]);
+		dto.setTipo(datosDTO[7]);
+		dto.setCosto(datosDTO[8]);
 		System.out.println(dto);
 
-		try {
-			del.crearAuto(dto);
-			response.sendRedirect("inicioAgencia.jsp");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+			try {
+				del.actualizarAuto(dto);
+				response.sendRedirect("inicioAgencia.jsp");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
 	}
 
 }

@@ -60,7 +60,7 @@
 				<li><a href="inicioAgencia.jsp">Autos</a></li>
 				<li><a href="registro_Auto.jsp">Agregar Autos</a></li>
 				<li class="paginaActiva"><a href="#">Perfil de la Agencia</a></li>
-				<li><a href="index.html">Salir</a></li>
+				<li><a href="ServletLogout">Salir</a></li>
 			</ul>
 
 		</div>

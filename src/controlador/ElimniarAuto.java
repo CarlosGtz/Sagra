@@ -1,24 +1,30 @@
 package controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.ha.backend.Sender;
+
+import modelo.SagraDelegate;
+import modelo.dto.AutoDTO;
 
 /**
- * Servlet implementation class ServletLogout
+ * Servlet implementation class ElimniarAuto
  */
-@WebServlet("/ServletLogout")
-public class ServletLogout extends HttpServlet {
+@WebServlet("/ElimniarAuto")
+public class ElimniarAuto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletLogout() {
+    public ElimniarAuto() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,16 +33,18 @@ public class ServletLogout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 HttpSession s = request.getSession(true);
-			if(s!=null){
-				s.setAttribute("RFCagencia", null);
-				s.setAttribute("usrAge", null);
-				s.setAttribute("user", null);				
-				response.sendRedirect("index.html");			
-				s.invalidate();
-			}else{
-				response.sendRedirect("index.html");
-			}
+		AutoDTO dto = new AutoDTO();
+		SagraDelegate del = new SagraDelegate();
+		String placas = request.getParameter("placas");
+		System.out.println(placas);
+		dto.setPlacas(placas);
+		try {
+			del.eliminarAuto(dto);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.sendRedirect("inicioAgencia.jsp");
 	}
 
 	/**
